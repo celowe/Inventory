@@ -1,0 +1,10 @@
+Name,Cost,Weight
+Backpack,2,2
+10ft Pole,0.5,8
+Crowbar,2,5
+Grappling Hook,1,4
+Spade,2,8
+50ft Rope,1,10
+Cure Light,50,0
+Cure Medium,300,0
+Cure Serious,750,0

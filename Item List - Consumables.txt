@@ -1,0 +1,8 @@
+Loaf of Bread,0.01,0.5
+Hunk of Cheese,0.1,0.5
+Common (Pitcher),0.2,6
+Fine (Bottle),10,1.5
+Chunk of Meat,0.3,0.5
+good  ,0.5,0
+common  ,0.3,0
+poor,0.1,0

@@ -1,0 +1,18 @@
+Unarmed,0,0,1,3,20,2,10,Blunt
+Dagger,2,1,1,3,19,2,10,Slash
+Sickle,6,2,1,6,20,2,10,Slash
+Club,1,3,1,6,20,2,10,Blunt
+MorningStar,8,6,1,8,20,2,10,Piercing
+LongSpear,5,9,1,8,20,3,10,Piercing
+Spear,2,6,1,8,20,3,20,Piercing
+CrossBow,35,4,1,8,19,2,80,Piercing
+Javelin,1,2,1,6,20,2,30,Piercing
+Kukri,8,2,1,4,18,2,10,Slash
+WarRazor,8,1,1,6,19,2,10,Slash
+Klar,12,6,1,6,20,2,10,Slash
+Terbutje,20,4,1,8,19,2,10,Slash
+Scizore,20,3,1,10,20,2,10,Piercing
+Bec De Corbin,15,12,1,10,20,3,10,Slash
+Earth Braker,40,14,2,6,20,3,10,Blunt
+Lucrene Hammer,15,12,1,12,20,2,10,Blunt
+Syringe Spear,100,6,1,8,20,3,20,Piercing
