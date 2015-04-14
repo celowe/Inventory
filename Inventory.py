@@ -1,6 +1,8 @@
 #Inventory Group Code
 #Cecil Lowe
 
+import random
+
 ####################### Weapon Object ##############################
 
 class Weapon(object):
@@ -18,8 +20,15 @@ class Weapon(object):
     def __str__(self):
         rep = self.name + "\n" + "Cost: " + str(self.cost) + "\n"
         return rep
-
     
+    @property
+    def damage(self):
+        roll = 0
+        for i in range(self.numDie):
+            roll += random.randint(1, self.typeDie)
+        return roll
+
+        
 ###################### Armor Object #################################
 
 class Armor(object):
@@ -47,6 +56,8 @@ class Consumable(object):
     def __str__(self):
         rep = self.name + "\n" + "Cost: " + str(self.cost) + "\n"
         return rep
+
+    #def use(self)
     
 ########################### Item Object #############################
 
@@ -68,7 +79,39 @@ class Inventory(object):
         self.weapons = {}
         self.armors = {}
         self.consumables = {}
-        
+        self.__importItems()
+    def __importItems(self):
+        weapon_file = open("Item List - Weapons.txt", "r")
+        for line in weapon_file:
+            line.strip()
+            data = line.split(',')
+            temp_weapon = Weapon(data[0], int(data[1]), int(data[2]), int(data[3]), int(data[4]), int(data[5]), int(data[6]), int(data[7]), data[8])
+            self.add_weapon(temp_weapon)
+        weapon_file.close()
+      
+        armor_file = open("Item List - Armor.txt", "r")
+        for line in armor_file:
+            line.strip()
+            data = line.split(',')
+            temp_armor = Armor(data[0], int(data[1]), int(data[2]), int(data[3]), int(data[4]), int(data[5]), int(data[6]))
+            self.add_armor(temp_armor)
+        armor_file.close()
+
+        item_file = open("Item List - Goods.txt", "r")
+        for line in item_file:
+            line.strip()
+            data = line.split(',')
+            temp_item = Item(data[0], int(float(data[1])), int(data[2]))
+            self.add_item(temp_item)
+        item_file.close()
+
+        consumables_file = open("Item List - Consumables.txt", "r")
+        for line in consumables_file:
+            line.strip()
+            data = line.split(',')
+            temp_consumable = Consumable(data[0], int(float((data[1]))), int(float(data[2])))
+            self.add_consumable(temp_consumable)
+        consumables_file.close() 
 # Adding Items into dictonary
     def add_item(self, aItem):
         self.items[aItem.name] = aItem
@@ -105,49 +148,17 @@ class Inventory(object):
 
 #============ Adding spread sheet files to dictonaries ===================================================>
 
-myInventory = Inventory()
-weapon_file = open("Item List - Weapons.txt", "r")
-for line in weapon_file:
-    line.strip()
-    data = line.split(',')
-    temp_weapon = Weapon(data[0], int(data[1]), int(data[2]), int(data[3]), int(data[4]), int(data[5]), int(data[6]), int(data[7]), data[8])
-    myInventory.add_weapon(temp_weapon)
-weapon_file.close()
-      
-armor_file = open("Item List - Armor.txt", "r")
-for line in armor_file:
-    line.strip()
-    data = line.split(',')
-    temp_armor = Armor(data[0], int(data[1]), int(data[2]), int(data[3]), int(data[4]), int(data[5]), int(data[6]))
-    myInventory.add_armor(temp_armor)
-armor_file.close()
 
-item_file = open("Item List - Goods.txt", "r")
-for line in item_file:
-    line.strip()
-    data = line.split(',')
-    temp_item = Item(data[0], int(float(data[1])), int(data[2]))
-    myInventory.add_item(temp_item)
-item_file.close()
-
-consumables_file = open("Item List - Consumables.txt", "r")
-for line in consumables_file:
-    line.strip()
-    data = line.split(',')
-    temp_consumable = Consumable(data[0], int(float((data[1]))), int(float(data[2])))
-    myInventory.add_consumable(temp_consumable)
-consumables_file.close() 
 
 #Print functions for objects
-print("====== Weapons =======")
-myInventory.print_weapons()
-print("====== Goods ======")
-myInventory.print_items()
-print("====== Armor =======")
-myInventory.print_armors()
-print("====== Consumables ======")
-myInventory.print_consumables()
+#print("====== Weapons =======")
+#myInventory.print_weapons()
+#print("====== Goods ======")
+#myInventory.print_items()
+#print("====== Armor =======")
+#myInventory.print_armors()
+#print("====== Consumables ======")
+#myInventory.print_consumables()
 
-input()
 
 ############# =END= ##############
